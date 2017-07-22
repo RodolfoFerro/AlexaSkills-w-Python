@@ -41,7 +41,7 @@ def yes_intent():
 
 # Ask for Pokémon
 @ask.intent("PokeIntent", convert={'pokemonid': int})
-def poke_intent():
+def poke_intent(pokemonid):
     poke_msg = get_poke_info(pokemonid)
     return statement(poke_msg)
 
