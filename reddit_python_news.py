@@ -11,7 +11,7 @@ from flask_ask import Ask, statement, question, session
 import requests, json, unidecode, time, logging
 
 # Set global variables
-name = 'INSERT_YOUR_NAME_HERE'
+name = 'Rodolfo'
 
 log = logging.getLogger()
 log.addHandler(logging.StreamHandler())
@@ -31,7 +31,7 @@ def homepage():
 @ask.launch
 def start_skill():
     welcome_msg = "Hello there {}, would you like to hear any Python toppics on Reddit?".format(name)
-    return question(welcome_message)
+    return question(welcome_msg)
 
 # If answer is yes
 @ask.intent("YesIntent")

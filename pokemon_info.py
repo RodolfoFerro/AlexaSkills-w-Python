@@ -31,13 +31,13 @@ def homepage():
 @ask.launch
 def start_skill():
     welcome_msg = "Hello there {}, would you like me to give you any Pokemon's info?".format(name)
-    return question(welcome_message)
+    return question(welcome_msg)
 
 # If answer is yes
 @ask.intent("YesIntent")
 def yes_intent():
     poke_msg = "What Pokemon's info would you like? Tell me an ID number please."
-    return question(poke_message)
+    return question(poke_msg)
 
 # Ask for Pokémon
 @ask.intent("PokeIntent", convert={'pokemonid': int})
