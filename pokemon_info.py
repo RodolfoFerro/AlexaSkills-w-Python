@@ -11,7 +11,7 @@ from flask_ask import Ask, statement, question, session
 import requests, json, unidecode, time, logging
 
 # Set global variables
-name = 'INSERT_YOUR_NAME_HERE'
+name = 'Rodolfo'
 
 log = logging.getLogger()
 log.addHandler(logging.StreamHandler())
@@ -74,6 +74,7 @@ def get_poke_info(pokemonid):
         poke_data += "Sorry, I wasn't able to find info about a Pokemon with that ID."
 
     return poke_data
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
