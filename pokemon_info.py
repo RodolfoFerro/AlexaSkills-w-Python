@@ -72,7 +72,7 @@ def session_ended():
 def get_poke_info(pokemonid):
     # Set url and do request
     url = "http://pokeapi.co/api/v2/pokemon/"
-    headers = {'User-Agent': 'Googlebot/2.1 (+http://www.google.com/bot.html)'}
+    headers = {'User-Agent': 'Pokémon info with Alexa'}
     response = requests.get(url + str(pokemonid), headers=headers)
     poke_data = ""
 
