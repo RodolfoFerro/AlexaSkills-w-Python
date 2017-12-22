@@ -72,7 +72,8 @@ def session_ended():
 def get_poke_info(pokemonid):
     # Set url and do request
     url = "http://pokeapi.co/api/v2/pokemon/"
-    response = requests.get(url + str(pokemonid))
+    headers = requests.utils.default_headers()
+    response = requests.get(url + str(pokemonid), headers=headers)
     poke_data = ""
 
     print(url + str(pokemonid))
