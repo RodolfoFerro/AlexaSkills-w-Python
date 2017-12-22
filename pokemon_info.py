@@ -73,6 +73,11 @@ def get_poke_info(pokemonid):
     # Set url and do request
     url = "http://pokeapi.co/api/v2/pokemon/"
     headers = requests.utils.default_headers()
+    headers.update(
+        {
+            'User-Agent': 'My User Agent 1.0',
+        }
+    )
     response = requests.get(url + str(pokemonid), headers=headers)
     poke_data = ""
 
