@@ -39,16 +39,16 @@ def homepage():
 # Alexa initial message (starting app...)
 @ask.launch
 def start_skill():
-    welcome_msg = "Hi {}, would you like to hear any Python toppics on Reddit?".format(name)
+    welcome_msg = "Hi! Would you like to hear any Python toppics on Reddiit?"
     return question(welcome_msg)
 
 
 # If answer is yes
 @ask.intent("YesIntent")
 def share_headlines():
-    python_headlines = reddit_python_headlines()
-    headline_msg = "The current Python headlines on Reddit are: {}.".format(python_headlines)
-    return statement(headline_msg)
+    pyheadlines = reddit_python_headlines()
+    msg = "The current Python headlines on Reddit are: {}.".format(pyheadlines)
+    return statement(msg)
 
 
 # If answer is no
@@ -67,17 +67,6 @@ def session_ended():
 
 # Consume Reddit API
 def reddit_python_headlines():
-    # # Login url and metadata
-    # reddit_url = "https://www.reddit.com/api/login"
-    # user_pass_dict = {'user': REDDIT_USER,
-    #                   'passwd': REDDIT_PASSWORD,
-    #                   'api_type': 'json'}
-    #
-    # # Create a session
-    # sess = requests.Session()
-    # sess.headers.update({'User-Agent': 'Python Reddit headlines with Alexa'})
-    # sess.post(reddit_url, data=user_pass_dict)
-    # time.sleep(1)   # Wait for connection...
 
     # Consume Reddit's API to gather info
     url = "https://www.reddit.com/r/Python/.json?limit=10"
