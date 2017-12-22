@@ -66,12 +66,11 @@ def session_ended():
 
 # Consume Reddit API
 def reddit_python_headlines():
-
+    
     # Consume Reddit's API to gather info
     url = "https://www.reddit.com/r/Python/.json?limit=10"
-    # html = sess.get(url)
-    html = requests.get(url)
-    time.sleep(2)
+    headers = {'User-Agent': 'Python Reddit headlines with Alexa'}
+    html = requests.get(url, headers=headers)
     print(html.status_code)
 
     info = json.loads(html.content.decode('utf-8'))
