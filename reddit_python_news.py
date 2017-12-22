@@ -7,7 +7,6 @@
 # =========================================================
 
 from flask_ask import Ask, statement, question, session
-from credentials import *
 from pprint import pprint
 from flask import Flask
 import unidecode
@@ -16,9 +15,7 @@ import logging
 import json
 import time
 
-# Set global variables
-name = 'Rodolfo'
-
+# Set logger
 log = logging.getLogger()
 log.addHandler(logging.StreamHandler())
 log.setLevel(logging.DEBUG)
@@ -39,7 +36,7 @@ def homepage():
 # Alexa initial message (starting app...)
 @ask.launch
 def start_skill():
-    welcome_msg = "Hi! Would you like to hear any Python toppics on Reddiit?"
+    welcome_msg = "Hi! Would you like to hear any Python toppics on Redit?"
     return question(welcome_msg)
 
 
@@ -47,7 +44,7 @@ def start_skill():
 @ask.intent("YesIntent")
 def share_headlines():
     pyheadlines = reddit_python_headlines()
-    msg = "The current Python headlines on Reddit are: {}.".format(pyheadlines)
+    msg = "The current Python headlines on Redit are: {}.".format(pyheadlines)
     return statement(msg)
 
 
