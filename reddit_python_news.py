@@ -71,6 +71,8 @@ def reddit_python_headlines():
     url = "https://www.reddit.com/r/Python/.json?limit=10"
     # html = sess.get(url)
     html = requests.get(url)
+    time.sleep(2)
+
     info = json.loads(html.content.decode('utf-8'))
     # pprint(info)
     child = info['data']['children']
