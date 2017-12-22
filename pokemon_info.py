@@ -36,14 +36,14 @@ def homepage():
 # Alexa initial message (starting app...)
 @ask.launch
 def start_skill():
-    welcome_msg = "Hi there {}, would you like me to give you any Pokemon's info?".format(name)
+    welcome_msg = "Hi, would you like me to give you any Pokemon's info?"
     return question(welcome_msg)
 
 
 # If answer is yes
 @ask.intent("YesIntent")
 def yes_intent():
-    poke_msg = "What Pokemon's info would you like? Tell me an ID number please."
+    poke_msg = "What Pokemon's info would you like? Give me an ID number."
     return question(poke_msg)
 
 
@@ -75,14 +75,17 @@ def get_poke_info(pokemonid):
     response = requests.get(url + str(pokemonid))
     poke_data = ""
 
+    print(url + str(pokemonid))
+    print(response)
+
     # Construct answer
     if response.ok:
         data = response.json()
-        poke_data += "The Pokemon is " + data['name'][0].upper() + data['name'][1:] + "... "
+        poke_data += "The Pokemon is " + data['name'].title() + "... "
         poke_data += "It's height is " + str(data['height']/10) + " meters... "
-        poke_data += "And it's weight is " + str(data['weight']/10) + " kilograms... "
+        poke_data += "It's weight is " + str(data['weight']/10) + " kilograms."
     else:
-        poke_data += "Sorry, I wasn't able to find info about a Pokemon with that ID."
+        poke_data += "Sorry, I couldn't find any Pokemon's info with that ID."
 
     return poke_data
 
