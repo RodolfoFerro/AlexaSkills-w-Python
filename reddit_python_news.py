@@ -15,7 +15,9 @@ import logging
 import json
 import time
 
-# Set logger
+# Set global variables
+name = 'Rodolfo'
+
 log = logging.getLogger()
 log.addHandler(logging.StreamHandler())
 log.setLevel(logging.DEBUG)
