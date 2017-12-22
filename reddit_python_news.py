@@ -8,6 +8,7 @@
 
 from flask_ask import Ask, statement, question, session
 from credentials import *
+from pprint import pprint
 from flask import Flask
 import unidecode
 import requests
@@ -66,24 +67,26 @@ def session_ended():
 
 # Consume Reddit API
 def reddit_python_headlines():
-    # Login url and metadata
-    reddit_url = "https://www.reddit.com/api/login"
-    user_pass_dict = {'user': REDDIT_USER,
-                      'passwd': REDDIT_PASSWORD,
-                      'api_type': 'json'}
-
-    # Create a session
-    sess = requests.Session()
-    sess.headers.update({'User-Agent': 'Python Reddit headlines with Alexa'})
-    sess.post(reddit_url, data=user_pass_dict)
-    time.sleep(1)   # Wait for connection...
+    # # Login url and metadata
+    # reddit_url = "https://www.reddit.com/api/login"
+    # user_pass_dict = {'user': REDDIT_USER,
+    #                   'passwd': REDDIT_PASSWORD,
+    #                   'api_type': 'json'}
+    #
+    # # Create a session
+    # sess = requests.Session()
+    # sess.headers.update({'User-Agent': 'Python Reddit headlines with Alexa'})
+    # sess.post(reddit_url, data=user_pass_dict)
+    # time.sleep(1)   # Wait for connection...
 
     # Consume Reddit's API to gather info
     url = "https://www.reddit.com/r/Python/.json?limit=10"
-    html = sess.get(url)
-    data = json.loads(html.content.decode('utf-8'))
-    lst = listing['data']['title']
-    titles = [unidecode.unidecode(lst) for listing in data['data']['children']]
+    # html = sess.get(url)
+    html = requests.get(url)
+    info = json.loads(html.content.decode('utf-8'))
+    pprint(info)
+    child = info['data']['children']
+    titles = [unidecode.unidecode(elem['data']['title']) for elem in child]
     titles = "... ".join([title for title in titles])
 
     return titles
