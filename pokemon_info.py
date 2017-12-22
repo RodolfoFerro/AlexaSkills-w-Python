@@ -75,7 +75,7 @@ def get_poke_info(pokemonid):
     headers = requests.utils.default_headers()
     headers.update(
         {
-            'User-Agent': 'My User Agent 1.0',
+            'User-Agent': 'cheese',
         }
     )
     response = requests.get(url + str(pokemonid), headers=headers)
