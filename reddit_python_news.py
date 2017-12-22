@@ -72,9 +72,9 @@ def reddit_python_headlines():
     # html = sess.get(url)
     html = requests.get(url)
     time.sleep(2)
+    print(html.status_code)
 
     info = json.loads(html.content.decode('utf-8'))
-    print(info)
     # pprint(info)
     child = info['data']['children']
     titles = [unidecode.unidecode(elem['data']['title']) for elem in child]
