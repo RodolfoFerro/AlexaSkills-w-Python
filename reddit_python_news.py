@@ -74,6 +74,7 @@ def reddit_python_headlines():
     time.sleep(2)
 
     info = json.loads(html.content.decode('utf-8'))
+    print(info)
     # pprint(info)
     child = info['data']['children']
     titles = [unidecode.unidecode(elem['data']['title']) for elem in child]
