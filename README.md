@@ -12,6 +12,8 @@ Building *Alexa skills* with Python.
 
 This repo contains two Alexa Skills (so far):
 
-* [pokemon_info.py](https://github.com/RodolfoFerro/AlexaSkills-w-Python/blob/master/pokemon_info.py), which conains an Alexa Skill to return Pokémon info by giving the ID of the Pokémon. 
+* [pokemon_info.py](https://github.com/RodolfoFerro/AlexaSkills-w-Python/blob/master/pokemon_info.py), which conains an Alexa Skill to return Pokémon info by giving the ID of the Pokémon. **Invocation:**
+> –– Alexa, open Pokémon info.
 
-* [reddit_python_news.py](https://github.com/RodolfoFerro/AlexaSkills-w-Python/blob/master/reddit_python_news.py), which contains an Alexa Skill that returns a list of Python news from Reddit.
+* [reddit_python_news.py](https://github.com/RodolfoFerro/AlexaSkills-w-Python/blob/master/reddit_python_news.py), which contains an Alexa Skill that returns a list of Python news from Reddit. **Invocation:**
+> –– Alexa, open Python Reddit.
