@@ -18,5 +18,6 @@ This repo contains two Alexa Skills (so far):
   > –– Alexa, open Pokémon info.
 
 * [reddit_python_news.py](https://github.com/RodolfoFerro/AlexaSkills-w-Python/blob/master/reddit_python_news.py), which contains an Alexa Skill that returns a list of Python news from Reddit.
+
   **Invocation:**
   > –– Alexa, open Python Reddit.
